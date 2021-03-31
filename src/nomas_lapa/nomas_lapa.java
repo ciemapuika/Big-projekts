@@ -30,7 +30,8 @@ public class nomas_lapa extends javax.swing.JFrame {
      *
      */
     public double summa_ar_pvn;
-    
+    public int rekins = 0;
+    public String rezultats = "";
     /**
      *
      * @return
@@ -46,6 +47,7 @@ public class nomas_lapa extends javax.swing.JFrame {
     public nomas_lapa() {
         initComponents();
         setExtendedState(frame2.MAXIMIZED_BOTH);
+        this.setTitle("Noma");
     }
     javax.swing.JFrame frame2;
 
@@ -392,7 +394,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                             .addComponent(jLabel15))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jText_slepes_zabaki)
+                            .addComponent(jText_slepes_zabaki, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                             .addComponent(jText_slepes_garums)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -421,7 +423,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                 .addComponent(jRadio_nujas)
                 .addGap(18, 18, 18)
                 .addComponent(jRadio_slepjukivere)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(185, 185, 250));
@@ -485,7 +487,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(37, 37, 37)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jText_pvn, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(jText_pvn, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                             .addComponent(jText_summa))))
                 .addContainerGap())
         );
@@ -615,7 +617,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                     .addComponent(jRadio_noma2)
                     .addComponent(jRadio_noma4)
                     .addComponent(jRadio_nomadiena))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(185, 185, 250));
@@ -699,7 +701,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                     .addComponent(jRadio_pacelajs2)
                     .addComponent(jRadio_pacelajs4)
                     .addComponent(jRadio_pacelajsdiena))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jPanel8.setBackground(new java.awt.Color(185, 185, 250));
@@ -815,7 +817,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                     .addComponent(jText_snova_zabaki, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jRadio_snovakivere)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jTime.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -865,7 +867,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1055,6 +1057,8 @@ private JFrame frame;
         num1 = 1325 + (int) (Math.random()*4238);
         q1 += num1 + 1325;
         jRekinanr.setText(q1);
+        rekins = 0;
+        rezultats = "";
 //==============================================================================        
         
     }//GEN-LAST:event_jButton_aprekinatActionPerformed
@@ -1136,7 +1140,7 @@ private JFrame frame;
     private void jButton_aprekinatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_aprekinatMouseClicked
         
         double slepes = 4;
-        double slepjuzabaki = 5;
+        double slepjuzabaki = 3;
         double nujas = 1;
         double kivere = 2;
         
@@ -1158,7 +1162,7 @@ private JFrame frame;
         double snovaatlase = snovadelis + snovazabaki + kivere1;
         double slepeskomplekts = slepesatlase - 2;
         double snovakomplekts = snovaatlase - 2;
-            
+        
        // (jRadio_slepjukomplekts.isSelected())
        //     jText_summa = 
        // if (jRadio_noma1.isSelected())
@@ -1167,15 +1171,19 @@ private JFrame frame;
 int slepju_summa=0;
 if (jRadio_slepes.isSelected())
     slepju_summa+=4;
+    rezultats += "\nSlēpes";
 if (jRadio_slepjuzabaki.isSelected())
     slepju_summa+=3;
+    rezultats += "\nZābaki";
 if (jRadio_nujas.isSelected())
-    slepju_summa+=1;       
+    slepju_summa+=1;   
+    rezultats += "\nNūjas";
 if (jRadio_slepjukivere.isSelected())
     slepju_summa+=2;
+    rezultats += "\nĶivere";
 if (jRadio_slepjukomplekts.isSelected())
     slepju_summa-=2;
-
+rekins = rekins + slepju_summa;
 //==============================================snovbords======================//
 int snova_summa=0;
 if (jRadio_delis.isSelected())
@@ -1186,60 +1194,45 @@ if (jRadio_snovakivere.isSelected())
     snova_summa+=2;  
 if (jRadio_snovakomplekts.isSelected())
     snova_summa-=1;
-
+rekins = rekins + snova_summa;
 //============================================nomas ilgums=====================//
 
 if (jRadio_noma1.isSelected())
-    slepju_summa*=1;
+    rekins*=1;
 
-if (jRadio_noma2.isSelected())
-    slepju_summa*=2;
+else if(jRadio_noma2.isSelected())
+    rekins*=2;
         
-if (jRadio_noma4.isSelected())
-    slepju_summa*=3;     
-  
-if (jRadio_nomadiena.isSelected())
-    slepju_summa*=5;
+else if(jRadio_noma4.isSelected()){
+    rekins*=3;     
+    rezultats += "\nNoma 4 h";
+}
+else if(jRadio_nomadiena.isSelected())
+    rekins*=5;
     
 //=================================    
-if (jRadio_noma1.isSelected())
-    snova_summa*=1;
-
-if (jRadio_noma2.isSelected())
-    snova_summa*=2;
-        
-if (jRadio_noma4.isSelected())
-    snova_summa*=3;
-     
-if (jRadio_nomadiena.isSelected())
-    snova_summa*=5;    
-
 //==========================================pacēlājs============================
 
 
 if (jRadio_pacelajs1.isSelected())
-    slepju_summa+=13;
-if (jRadio_pacelajs2.isSelected())
-    slepju_summa+=15;
-if (jRadio_pacelajs4.isSelected())
-    slepju_summa+=17;
-if (jRadio_pacelajsdiena.isSelected())
-    slepju_summa+=18;
+    rekins+=13;
+else if (jRadio_pacelajs2.isSelected())
+    rekins+=15;
+else if (jRadio_pacelajs4.isSelected())
+    rekins+=17;
+else if (jRadio_pacelajsdiena.isSelected())
+    rekins+=18;
 
-if (jRadio_pacelajs1.isSelected())
-    snova_summa+=13;
-if (jRadio_pacelajs2.isSelected())
-    snova_summa+=15;
-if (jRadio_pacelajs4.isSelected())
-    snova_summa+=17;
-if (jRadio_pacelajsdiena.isSelected())
-    snova_summa+=18;
 
    
 
 jText_ceks.append("Kopējais čeks:\n" +
         "Summa slēpēm:\t\t" + String.valueOf(slepju_summa) + "\n\n" +
-        "Summa snovam:\t\t" + String.valueOf(snova_summa) + "\n\n" );
+        "Summa snovam:\t\t" + String.valueOf(snova_summa) + "\n\n" +
+        "Rēķins = \t\t" + String.valueOf(rekins) + "\n" +
+        rezultats
+        
+);
 
 
 
