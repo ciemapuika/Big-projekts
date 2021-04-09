@@ -5,6 +5,9 @@
  */
 package nomas_lapa;
 
+import java.awt.print.PrinterException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
@@ -32,6 +35,8 @@ public class nomas_lapa extends javax.swing.JFrame {
     public double summa_ar_pvn;
     public int rekins = 0;
     public String rezultats = "";
+    public String laiks = "";
+    public String pacelshana = "";
     /**
      *
      * @return
@@ -423,7 +428,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                 .addComponent(jRadio_nujas)
                 .addGap(18, 18, 18)
                 .addComponent(jRadio_slepjukivere)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(185, 185, 250));
@@ -487,7 +492,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(37, 37, 37)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jText_pvn, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                            .addComponent(jText_pvn, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                             .addComponent(jText_summa))))
                 .addContainerGap())
         );
@@ -545,7 +550,6 @@ public class nomas_lapa extends javax.swing.JFrame {
         jLabel13.setText("Nomas ilgums:");
 
         jRadio_noma1.setBackground(new java.awt.Color(185, 185, 250));
-        noma_grupa.add(jRadio_noma1);
         jRadio_noma1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jRadio_noma1.setForeground(new java.awt.Color(88, 87, 87));
         jRadio_noma1.setText("1 stunda");
@@ -617,7 +621,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                     .addComponent(jRadio_noma2)
                     .addComponent(jRadio_noma4)
                     .addComponent(jRadio_nomadiena))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(185, 185, 250));
@@ -701,7 +705,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                     .addComponent(jRadio_pacelajs2)
                     .addComponent(jRadio_pacelajs4)
                     .addComponent(jRadio_pacelajsdiena))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel8.setBackground(new java.awt.Color(185, 185, 250));
@@ -817,7 +821,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                     .addComponent(jText_snova_zabaki, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jRadio_snovakivere)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         jTime.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -934,7 +938,7 @@ public class nomas_lapa extends javax.swing.JFrame {
                                 .addComponent(jRekinanr)
                                 .addGap(3, 3, 3)
                                 .addComponent(jTime)
-                                .addGap(0, 3, Short.MAX_VALUE)))
+                                .addGap(0, 4, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton_aprekinat, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -949,7 +953,15 @@ public class nomas_lapa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       
+        //=================================izdrukā čeku=================================================
+        try {
+            jText_ceks.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(nomas_lapa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 private JFrame frame;
     private void jButton_izietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_izietActionPerformed
@@ -975,7 +987,7 @@ private JFrame frame;
     }//GEN-LAST:event_jText_epastsActionPerformed
 
     private void jText_vardsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_vardsActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jText_vardsActionPerformed
 
     private void jText_uzvardsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_uzvardsActionPerformed
@@ -993,17 +1005,17 @@ private JFrame frame;
 
     private void jText_summaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_summaActionPerformed
       
-        String summa_arpvn = String.format("$%.2f", summa_ar_pvn);
-        if (jButton_aprekinat.isSelected())
-            jText_sum_bez_pvn.setText(summa_arpvn);      
-            
+        if (jButton_aprekinat.isSelected()){
+            jText_summa.setText(String.valueOf(rekins));      
+        }
     }//GEN-LAST:event_jText_summaActionPerformed
 
     private void jText_pvnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_pvnActionPerformed
    
-    if (jButton_aprekinat.isSelected())
+    if (jButton_aprekinat.isSelected()){
             jText_pvn.getText();     
-            String summa_bezpvn = jText_pvn.getText();
+            String PVN = jText_pvn.getText();
+    }
     }//GEN-LAST:event_jText_pvnActionPerformed
 
     private void jButton_dzestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_dzestActionPerformed
@@ -1042,47 +1054,34 @@ private JFrame frame;
     }//GEN-LAST:event_jButton_dzestActionPerformed
 
     private void jButton_aprekinatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_aprekinatActionPerformed
-//====================Laiks-----------------------------------------------------
-        Calendar timer = Calendar.getInstance();
-        timer.getTime();
-        SimpleDateFormat tTime = new SimpleDateFormat("HH:mm:ss");
-        jTime.setText(tTime.format(timer.getTime()));
-//===================Datums-----------------------------------------------------      
-        SimpleDateFormat Tdate = new SimpleDateFormat("dd MMM yyyy");
-        jDate.setText(Tdate.format(timer.getTime()));
-        
-//===================Rēķina numurs----------------------------------------------
-        int num1;
-        String q1 ="";
-        num1 = 1325 + (int) (Math.random()*4238);
-        q1 += num1 + 1325;
-        jRekinanr.setText(q1);
-        rekins = 0;
-        rezultats = "";
-//==============================================================================        
-        
+
+
+
     }//GEN-LAST:event_jButton_aprekinatActionPerformed
 
     private void jRadio_noma2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio_noma2ActionPerformed
         
-        if (jRadio_noma2.isSelected())
+        if (jRadio_noma2.isSelected()){
             jRadio_noma1.setSelected(false);
             jRadio_noma4.setSelected(false);
             jRadio_nomadiena.setSelected(false);
+        }
     }//GEN-LAST:event_jRadio_noma2ActionPerformed
 
     private void jRadio_pacelajs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio_pacelajs2ActionPerformed
         
-        if (jRadio_pacelajs2.isSelected())
+        if (jRadio_pacelajs2.isSelected()){
             jRadio_pacelajs1.setSelected(false);
             jRadio_pacelajs4.setSelected(false);
             jRadio_pacelajsdiena.setSelected(false);
+        }
     }//GEN-LAST:event_jRadio_pacelajs2ActionPerformed
 
     private void jRadio_slepesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio_slepesActionPerformed
        
-        if (jRadio_slepes.isSelected())
+        if (jRadio_slepes.isSelected()){
             jRadio_delis.setSelected(false);
+        }
         
     }//GEN-LAST:event_jRadio_slepesActionPerformed
 
@@ -1131,14 +1130,15 @@ private JFrame frame;
 
     private void jRadio_noma1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio_noma1ActionPerformed
         
-        if (jRadio_noma1.isSelected())
+        if (jRadio_noma1.isSelected()){
             jRadio_noma2.setSelected(false);
             jRadio_noma4.setSelected(false);
             jRadio_nomadiena.setSelected(false);
+        }
     }//GEN-LAST:event_jRadio_noma1ActionPerformed
 
     private void jButton_aprekinatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_aprekinatMouseClicked
-        
+     /*   
         double slepes = 4;
         double slepjuzabaki = 3;
         double nujas = 1;
@@ -1162,77 +1162,136 @@ private JFrame frame;
         double snovaatlase = snovadelis + snovazabaki + kivere1;
         double slepeskomplekts = slepesatlase - 2;
         double snovakomplekts = snovaatlase - 2;
-        
+     */   
        // (jRadio_slepjukomplekts.isSelected())
        //     jText_summa = 
        // if (jRadio_noma1.isSelected())
        // jText_summa.setText("2");
 //=============================================slēpes==========================//            
 int slepju_summa=0;
-if (jRadio_slepes.isSelected())
+if (jRadio_slepjukomplekts.isSelected()){
+    slepju_summa-=2; 
+    rezultats += "\n -Slēpju komplekts";
+}
+if (jRadio_slepes.isSelected()){
     slepju_summa+=4;
-    rezultats += "\nSlēpes";
-if (jRadio_slepjuzabaki.isSelected())
+    rezultats += "\n -Slēpes";
+}
+if (jRadio_slepjuzabaki.isSelected()){
     slepju_summa+=3;
-    rezultats += "\nZābaki";
-if (jRadio_nujas.isSelected())
+    rezultats += "\n -Slēpju zābaki";
+}
+if (jRadio_nujas.isSelected()){
     slepju_summa+=1;   
-    rezultats += "\nNūjas";
-if (jRadio_slepjukivere.isSelected())
+    rezultats += "\n -Nūjas";
+}
+if (jRadio_slepjukivere.isSelected()){
     slepju_summa+=2;
-    rezultats += "\nĶivere";
-if (jRadio_slepjukomplekts.isSelected())
-    slepju_summa-=2;
+    rezultats += "\n -Ķivere";
+}
+
 rekins = rekins + slepju_summa;
 //==============================================snovbords======================//
 int snova_summa=0;
-if (jRadio_delis.isSelected())
-    snova_summa+=3;
-if (jRadio_snovazabaki.isSelected())
-    snova_summa+=3;      
-if (jRadio_snovakivere.isSelected())
-    snova_summa+=2;  
-if (jRadio_snovakomplekts.isSelected())
+if (jRadio_snovakomplekts.isSelected()){
     snova_summa-=1;
+    rezultats += "\n -Snovborda komplekts";
+}
+if (jRadio_delis.isSelected()){
+    snova_summa+=3;
+    rezultats += "\n -Snovborda dēlis";
+}
+if (jRadio_snovazabaki.isSelected()){
+    snova_summa+=3;      
+    rezultats += "\n -Snovborda zābaki";
+}
+if (jRadio_snovakivere.isSelected()){
+    snova_summa+=2;  
+    rezultats += "\n -Ķivere";
+}
+
 rekins = rekins + snova_summa;
 //============================================nomas ilgums=====================//
 
-if (jRadio_noma1.isSelected())
+if (jRadio_noma1.isSelected()){
     rekins*=1;
+    laiks += "\n 1 stundu";
+}
 
-else if(jRadio_noma2.isSelected())
+else if(jRadio_noma2.isSelected()){
     rekins*=2;
-        
+    laiks += "\n 2 stundām";   
+}
 else if(jRadio_noma4.isSelected()){
     rekins*=3;     
-    rezultats += "\nNoma 4 h";
+    laiks += "\n 4 stundas";
 }
-else if(jRadio_nomadiena.isSelected())
+else if(jRadio_nomadiena.isSelected()){
     rekins*=5;
-    
+    laiks += "\n visu dienu";
+}
 //=================================    
 //==========================================pacēlājs============================
 
 
-if (jRadio_pacelajs1.isSelected())
+if (jRadio_pacelajs1.isSelected()){
     rekins+=13;
-else if (jRadio_pacelajs2.isSelected())
+    pacelshana += "\n 1 stundu";
+}
+else if (jRadio_pacelajs2.isSelected()){
     rekins+=15;
-else if (jRadio_pacelajs4.isSelected())
+    pacelshana += "\n 2 stundām";
+}
+else if (jRadio_pacelajs4.isSelected()){
     rekins+=17;
-else if (jRadio_pacelajsdiena.isSelected())
+    pacelshana += "\n 4 stundām";
+}
+else if (jRadio_pacelajsdiena.isSelected()){
     rekins+=18;
+    pacelshana += "\n visai dienai";
+}
 
 
-   
 
-jText_ceks.append("Kopējais čeks:\n" +
-        "Summa slēpēm:\t\t" + String.valueOf(slepju_summa) + "\n\n" +
-        "Summa snovam:\t\t" + String.valueOf(snova_summa) + "\n\n" +
-        "Rēķins = \t\t" + String.valueOf(rekins) + "\n" +
-        rezultats
+
+//====================Laiks-----------------------------------------------------
+        Calendar timer = Calendar.getInstance();
+        timer.getTime();
+        SimpleDateFormat tTime = new SimpleDateFormat("HH:mm:ss");
+        jTime.setText(tTime.format(timer.getTime()));
+//===================Datums-----------------------------------------------------      
+        SimpleDateFormat Tdate = new SimpleDateFormat("dd MMM yyyy");
+        jDate.setText(Tdate.format(timer.getTime()));
+        
+//===================Rēķina numurs----------------------------------------------
+        int num1;
+        String q1 ="";
+        num1 = 1325 + (int) (Math.random()*4238);
+        q1 += num1 + 1325;
+        jRekinanr.setText(q1);
+        
+//==============================================================================        
+
+jText_ceks.append("\tNomas reģistrācijas čeks\n\n"+
+        "Rēķina nr:\t"+ String.valueOf(q1) + "\n"+
+        "Datums: \t"+ String.valueOf(Tdate.format(timer.getTime())) + "\n"+      
+        "Laiks: \t"+ String.valueOf(tTime.format(timer.getTime())) + "\n"+
+        "Nomas dati: \t" + jText_vards.getText() + " " + jText_uzvards.getText() +" "+ jText_adrese.getText() + "\n"+
+        "Tālrunis: \t" + jText_talrunis.getText() + "\n" +
+        "E-pasts: \t" + jText_epasts.getText() +
+    "\n----------------------------------------------------\n" +        
+        "Summa par inventāra nomu:" + String.valueOf(rekins) + "\n\n" +
+        "Jūsu izvēlētais inventārs: \t\t" + rezultats + "\n"+
+    "\n----------------------------------------------------\n" +                
+        "Nomāts uz:" + laiks +
+    "\n----------------------------------------------------\n" +                      
+        "Ar pacēlāju uz: \t" + pacelshana +
+    "\n================================\n" 
+            + "\n\n\tPaldies par pirkumu"
         
 );
+   
+
 
 
 
@@ -1284,8 +1343,9 @@ jText_ceks.append("Kopējais čeks:\n" +
     }//GEN-LAST:event_jRadio_pacelajsdienaActionPerformed
 
     private void jRadio_slepjukomplektsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio_slepjukomplektsActionPerformed
-        if (jRadio_slepjukomplekts.isSelected())
-            jRadio_snovakomplekts.setSelected(false);    
+     if (jRadio_slepjukomplekts.isSelected()){
+            jRadio_snovakomplekts.setSelected(false);      
+        }
         
         if (jRadio_slepjukomplekts.isSelected()) {
             jRadio_slepes.setSelected(true);
@@ -1297,10 +1357,8 @@ jText_ceks.append("Kopējais čeks:\n" +
             jRadio_slepjukivere.setSelected(false);
             jRadio_slepjuzabaki.setSelected(false);
             jRadio_nujas.setSelected(false);
-            
         }
    
-        
 
             
     }//GEN-LAST:event_jRadio_slepjukomplektsActionPerformed
