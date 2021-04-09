@@ -1175,11 +1175,16 @@ if (jRadio_slepjukomplekts.isSelected()){
 }
 if (jRadio_slepes.isSelected()){
     slepju_summa+=4;
-    rezultats += "\n -Slēpes";
+    if(jText_slepes_garums.getText().equals("")){
+        rezultats += "\n -Slēpes";
+    }
+    else{
+        rezultats += "\n -Slēpes " + jText_slepes_garums.getText() + " cm";
+    }
 }
 if (jRadio_slepjuzabaki.isSelected()){
     slepju_summa+=3;
-    rezultats += "\n -Slēpju zābaki";
+    rezultats += "\n -Slēpju zābaki"+ jText_slepes_zabaki.getText() + " cm";
 }
 if (jRadio_nujas.isSelected()){
     slepju_summa+=1;   
@@ -1199,11 +1204,11 @@ if (jRadio_snovakomplekts.isSelected()){
 }
 if (jRadio_delis.isSelected()){
     snova_summa+=3;
-    rezultats += "\n -Snovborda dēlis";
+    rezultats += "\n -Snovborda dēlis" + jText_delis_garums.getText() + " cm";
 }
 if (jRadio_snovazabaki.isSelected()){
     snova_summa+=3;      
-    rezultats += "\n -Snovborda zābaki";
+    rezultats += "\n -Snovborda zābaki" + jText_snova_zabaki.getText()+ " cm";
 }
 if (jRadio_snovakivere.isSelected()){
     snova_summa+=2;  
@@ -1270,7 +1275,10 @@ else if (jRadio_pacelajsdiena.isSelected()){
         q1 += num1 + 1325;
         jRekinanr.setText(q1);
         
-//==============================================================================        
+//==============================================================================
+double rekins_bez_pvn = rekins - rekins*0.21;
+jText_summa.setText(String.valueOf(rekins));
+jText_sum_bez_pvn.setText(String.valueOf(rekins_bez_pvn));
 
 jText_ceks.append("\tNomas reģistrācijas čeks\n\n"+
         "Rēķina nr:\t"+ String.valueOf(q1) + "\n"+

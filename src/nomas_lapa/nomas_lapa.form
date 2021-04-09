@@ -584,7 +584,7 @@
                       <Component id="jRadio_nujas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jRadio_slepjukivere" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="10" max="32767" attributes="0"/>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -770,7 +770,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jText_pvn" pref="192" max="32767" attributes="0"/>
+                                  <Component id="jText_pvn" pref="194" max="32767" attributes="0"/>
                                   <Component id="jText_summa" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -984,7 +984,7 @@
                           <Component id="jRadio_noma4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadio_nomadiena" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="11" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1130,7 +1130,7 @@
                           <Component id="jRadio_pacelajs4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadio_pacelajsdiena" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="11" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1299,7 +1299,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jRadio_snovakivere" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="61" max="32767" attributes="0"/>
+                      <EmptySpace pref="78" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
